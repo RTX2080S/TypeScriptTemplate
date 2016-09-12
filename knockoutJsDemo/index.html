@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!--knockoutJS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Passenger name</th>
+                    <th>Meal</th>
+                    <th>Surcharge</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: seats">
+                <tr>
+                    <td><input class="form-control" data-bind="value: name" /></td>
+                    <td><select class="form-control" data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+                    <td><label data-bind="text: formattedPrice"></label></td>
+                    <td><button class="btn btn-sm btn-danger" data-bind="click: $root.removeSeat">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-success" data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
+
+        <h3 data-bind="visible: totalSurcharge() > 0">
+            Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+        </h3>
+    </div>
+
+    <script>
+
+        // Class to represent a row in the seat reservations grid
+        function SeatReservation(name, initialMeal) {
+            var self = this;
+            self.name = name;
+            self.meal = ko.observable(initialMeal);
+
+            self.formattedPrice = ko.computed(function () {
+                var price = self.meal().price;
+                return price ? "$" + price.toFixed(2) : "None";
+            });
+        }
+
+        // Overall viewmodel for this screen, along with initial state
+        function ReservationsViewModel() {
+            var self = this;
+
+            // Non-editable catalog data - would come from the server
+            self.availableMeals = [
+                { mealName: "Standard (sandwich)", price: 0 },
+                { mealName: "Premium (lobster)", price: 34.95 },
+                { mealName: "Ultimate (whole zebra)", price: 290 }
+            ];
+
+            // Editable data
+            self.seats = ko.observableArray([
+                new SeatReservation("Steve", self.availableMeals[0]),
+                new SeatReservation("Bert", self.availableMeals[0])
+            ]);
+
+            // Computed data
+            self.totalSurcharge = ko.computed(function () {
+                var total = 0;
+                for (var i = 0; i < self.seats().length; i++)
+                    total += self.seats()[i].meal().price;
+                return total;
+            });
+
+            // Operations
+            self.addSeat = function () {
+                self.seats.push(new SeatReservation("", self.availableMeals[0]));
+            }
+            self.removeSeat = function (seat) { self.seats.remove(seat) }
+        }
+
+        ko.applyBindings(new ReservationsViewModel());
+
+    </script>
+</body>
+</html>
