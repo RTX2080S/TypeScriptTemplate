@@ -14,12 +14,12 @@ namespace knockoutJsDemo.Controllers
             new Meal { Id = 2, Name = "Ultimate (whole zebra)", Price = 290M }
         };
 
-        public IEnumerable<Meal> GetAllProducts()
+        public IEnumerable<Meal> GetAllMeals()
         {
             return products;
         }
-
-        public IHttpActionResult GetProduct(int id)
+        
+        public IHttpActionResult GetMeal(int id)
         {
             var product = products.FirstOrDefault((p) => p.Id == id);
             if (product == null)
