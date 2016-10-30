@@ -2,22 +2,17 @@
 var mappedMeals;
 
 $(function () {
-    $.isLoading({ text: "Loading..." });
-    loadData(initialize);
+    loadData();
 });
 
-function initialize() {
-    // Bind the data when everything is ready
-    ko.applyBindings(new ReservationsViewModel());
-    $.isLoading("hide");
-}
-
-function loadData(callback) {
+function loadData() {
+    $.isLoading({ text: "Loading..." });
     $.getJSON("/api/meals/getAllMeals", function (allData) {
-        mappedMeals = $.map(allData, function (item) { return new Meal(item) });  
-
-        // on finish, call back
-        callback();
+        mappedMeals = $.map(allData, function (item) { return new Meal(item) });
+    }).then(function () {
+        // Bind the data when everything is ready
+        ko.applyBindings(new ReservationsViewModel());
+        $.isLoading("hide");
     });
 }
 
