@@ -31,7 +31,7 @@ function SeatReservation(name, initialMeal) {
 function Meal(data) {
     var self = this;
     self.id = ko.observable(data.Id);
-    self.name = ko.observable(data.Name);
+    self.mealName = ko.observable(data.Name);
     self.price = ko.observable(data.Price);
 }
 
