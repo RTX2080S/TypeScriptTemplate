@@ -120,7 +120,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\isloading-style.css" />
-    <Content Include="Scripts\JavaScript.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +140,10 @@
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\tests\jasmine.extensions.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\requirejs\require.d.ts" />
     <TypeScriptCompile Include="ViewModels\app.ts" />
+    <TypeScriptCompile Include="ViewModels\Meal.ts" />
+    <TypeScriptCompile Include="ViewModels\SeatReservation.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

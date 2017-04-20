@@ -1,4 +1,6 @@
-﻿
+﻿import { Meal } from "./Meal";
+import { SeatReservation } from "./SeatReservation";
+
 var mappedMeals;
 
 $(function () {
@@ -14,25 +16,6 @@ function loadData() {
         ko.applyBindings(new ReservationsViewModel());
         //$.isLoading("hide");
     });
-}
-
-// Class to represent a row in the seat reservations grid
-function SeatReservation(name, initialMeal) {
-    var self = this;
-    self.name = name;
-    self.meal = ko.observable(initialMeal);
-
-    self.formattedPrice = ko.computed(function () {
-        var price = self.meal().price();
-        return price ? "$" + price.toFixed(2) : "None";
-    });
-}
-
-function Meal(data) {
-    var self = this;
-    self.id = ko.observable(data.Id);
-    self.mealName = ko.observable(data.Name);
-    self.price = ko.observable(data.Price);
 }
 
 // Overall viewmodel for this screen, along with initial state
@@ -60,6 +43,6 @@ function ReservationsViewModel() {
     self.addSeat = function () {
         self.seats.push(new SeatReservation("", self.availableMeals()[0]));
     }
-    self.removeSeat = function (seat) { self.seats.remove(seat) }
 
+    self.removeSeat = function (seat) { self.seats.remove(seat) }
 }
