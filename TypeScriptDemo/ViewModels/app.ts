@@ -10,12 +10,13 @@ export class App {
         this.loadData();
     }
 
-    private loadData() {
+    private loadData = () => {
+        let self = this;
         $.getJSON("/api/meals/getAllMeals", function (allData) {
-            this.mappedMeals = $.map(allData, function (item) { return new Meal(item) });
+            self.mappedMeals = $.map(allData, function (item) { return new Meal(item) });
         }).then(function () {
             // Bind the data when everything is ready
-            ko.applyBindings(new ReservationsViewModel(this.mappedMeals));
+            ko.applyBindings(new ReservationsViewModel(self.mappedMeals));
         });
     }
 }
