@@ -11,13 +11,11 @@ export class App {
     }
 
     private loadData() {
-        //$.isLoading({ text: "Loading..." });
         $.getJSON("/api/meals/getAllMeals", function (allData) {
             this.mappedMeals = $.map(allData, function (item) { return new Meal(item) });
         }).then(function () {
             // Bind the data when everything is ready
             ko.applyBindings(new ReservationsViewModel(this.mappedMeals));
-            //$.isLoading("hide");
         });
     }
 }
