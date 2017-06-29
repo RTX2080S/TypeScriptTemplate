@@ -87,7 +87,7 @@
 - vendors?/
 - extern(al)?/
 - (^|/)[Vv]+endor/
-- Scripts/
+- TypeScriptDemo/Scripts/
 
 # Debian packaging
 - ^debian/
