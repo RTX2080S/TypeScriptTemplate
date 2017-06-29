@@ -4,10 +4,11 @@ import { SeatReservation } from "./SeatReservation";
 export class ReservationsViewModel {
 
     public availableMeals: KnockoutObservableArray<Meal>;
-    public seats: KnockoutObservableArray<any>;
+    public seats: KnockoutObservableArray<SeatReservation>;
     public totalSurcharge: KnockoutComputed<any>;
-    
+
     constructor(mappedMeals: any) {
+        var self = this;
 
         this.availableMeals = ko.observableArray([]);
         this.availableMeals(mappedMeals);
@@ -21,17 +22,17 @@ export class ReservationsViewModel {
         // Computed data
         this.totalSurcharge = ko.computed(function () {
             var total = 0;
-            for (var i = 0; i < this.seats().length; i++)
-                total += this.seats()[i].meal().price();
+            for (var i = 0; i < self.seats().length; i++)
+                total += self.seats()[i].meal().price();
             return total;
         });
     }
 
-    public addSeat(): void {
+    public addSeat = () => {
         this.seats.push(new SeatReservation("", this.availableMeals()[0]));
     }
 
-    public removeSeat(seat: any): void {
+    public removeSeat = (seat: SeatReservation) => {
         this.seats.remove(seat);
     }
 }

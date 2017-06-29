@@ -3,6 +3,14 @@ define(["require", "exports", "./SeatReservation"], function (require, exports, 
     Object.defineProperty(exports, "__esModule", { value: true });
     var ReservationsViewModel = (function () {
         function ReservationsViewModel(mappedMeals) {
+            var _this = this;
+            this.addSeat = function () {
+                _this.seats.push(new SeatReservation_1.SeatReservation("", _this.availableMeals()[0]));
+            };
+            this.removeSeat = function (seat) {
+                _this.seats.remove(seat);
+            };
+            var self = this;
             this.availableMeals = ko.observableArray([]);
             this.availableMeals(mappedMeals);
             // Editable data
@@ -13,17 +21,11 @@ define(["require", "exports", "./SeatReservation"], function (require, exports, 
             // Computed data
             this.totalSurcharge = ko.computed(function () {
                 var total = 0;
-                for (var i = 0; i < this.seats().length; i++)
-                    total += this.seats()[i].meal().price();
+                for (var i = 0; i < self.seats().length; i++)
+                    total += self.seats()[i].meal().price();
                 return total;
             });
         }
-        ReservationsViewModel.prototype.addSeat = function () {
-            this.seats.push(new SeatReservation_1.SeatReservation("", this.availableMeals()[0]));
-        };
-        ReservationsViewModel.prototype.removeSeat = function (seat) {
-            this.seats.remove(seat);
-        };
         return ReservationsViewModel;
     }());
     exports.ReservationsViewModel = ReservationsViewModel;
