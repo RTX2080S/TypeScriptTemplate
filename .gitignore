@@ -250,3 +250,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# TypeScript generated files
+/knockoutJsDemo/ViewModels/**/*.js
+/knockoutJsDemo/ViewModels/**/*.d.ts
+/knockoutJsDemo/ViewModels/**/*.js.map
