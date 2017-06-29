@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es5",
+    "noImplicitAny": false,
+    "rootDir": ".",
+    "sourceMap": false,
+    "declaration": true,
+    "diagnostics": true,
+    "moduleResolution": "classic",
+    "baseUrl": "."
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}
