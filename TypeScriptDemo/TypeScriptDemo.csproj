@@ -188,7 +188,6 @@
       <Link>Scripts\jquery-3.1.1.slim.min.map</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\jquery.isloading.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -202,7 +201,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\isloading-style.css" />
     <TypeScriptCompile Include="ViewModels\Config.ts" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -268,10 +266,6 @@
   </Target>
   <!-- Copy the linked content files to the Debug directory -->
   <Target Name="CopyLinkedContentFiles" BeforeTargets="Build">
-    <Copy SourceFiles="%(Content.Identity)"
-          DestinationFiles="%(Content.Link)"
-          SkipUnchangedFiles='true'
-          OverwriteReadOnlyFiles='true'
-          Condition="'%(Content.Link)' != ''" />
+    <Copy SourceFiles="%(Content.Identity)" DestinationFiles="%(Content.Link)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Condition="'%(Content.Link)' != ''" />
   </Target>
 </Project>
