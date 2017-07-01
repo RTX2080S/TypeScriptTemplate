@@ -83,36 +83,90 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="..\packages\bootstrap.3.3.7\content\Content\bootstrap-theme.css">
+      <Link>Content\bootstrap-theme.css</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Content\bootstrap-theme.min.css">
+      <Link>Content\bootstrap-theme.min.css</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Content\bootstrap.css">
+      <Link>Content\bootstrap.css</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Content\bootstrap.min.css">
+      <Link>Content\bootstrap.min.css</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\fonts\glyphicons-halflings-regular.svg">
+      <Link>fonts\glyphicons-halflings-regular.svg</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Scripts\bootstrap.js">
+      <Link>Scripts\bootstrap.js</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Scripts\bootstrap.min.js">
+      <Link>Scripts\bootstrap.min.js</Link>
+    </Content>
+    <Content Include="..\packages\jQuery.3.1.1\Content\Scripts\jquery-3.1.1.min.js">
+      <Link>Scripts\jquery-3.1.1.min.js</Link>
+    </Content>
+    <Content Include="..\packages\jQuery.3.1.1\Content\Scripts\jquery-3.1.1.slim.js">
+      <Link>Scripts\jquery-3.1.1.slim.js</Link>
+    </Content>
+    <Content Include="..\packages\jQuery.3.1.1\Content\Scripts\jquery-3.1.1.slim.min.js">
+      <Link>Scripts\jquery-3.1.1.slim.min.js</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Content\bootstrap-theme.css.map">
+      <Link>Content\bootstrap-theme.css.map</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Content\bootstrap-theme.min.css.map">
+      <Link>Content\bootstrap-theme.min.css.map</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Content\bootstrap.css.map">
+      <Link>Content\bootstrap.css.map</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\Content\bootstrap.min.css.map">
+      <Link>Content\bootstrap.min.css.map</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\fonts\glyphicons-halflings-regular.eot">
+      <Link>fonts\glyphicons-halflings-regular.eot</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\fonts\glyphicons-halflings-regular.ttf">
+      <Link>fonts\glyphicons-halflings-regular.ttf</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\fonts\glyphicons-halflings-regular.woff">
+      <Link>fonts\glyphicons-halflings-regular.woff</Link>
+    </Content>
+    <Content Include="..\packages\bootstrap.3.3.7\content\fonts\glyphicons-halflings-regular.woff2">
+      <Link>fonts\glyphicons-halflings-regular.woff2</Link>
+    </Content>
+    <None Include="..\packages\jQuery.3.1.1\Tools\jquery-3.1.1.intellisense.js">
+      <Link>Scripts\jquery-3.1.1.intellisense.js</Link>
+    </None>
+    <Content Include="..\packages\knockoutjs.3.4.2\Content\Scripts\knockout-3.4.2.debug.js">
+      <Link>Scripts\knockout-3.4.2.debug.js</Link>
+    </Content>
+    <Content Include="..\packages\knockoutjs.3.4.2\Content\Scripts\knockout-3.4.2.js">
+      <Link>Scripts\knockout-3.4.2.js</Link>
+    </Content>
+    <Content Include="..\packages\RequireJS.2.3.3\content\Scripts\r.js">
+      <Link>Scripts\r.js</Link>
+    </Content>
+    <Content Include="..\packages\RequireJS.2.3.3\content\Scripts\require.js">
+      <Link>Scripts\require.js</Link>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="index.html" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="Scripts\knockout-3.4.2.debug.js" />
-    <Content Include="Scripts\knockout-3.4.2.js" />
+    <Content Include="..\packages\jQuery.3.1.1\Content\Scripts\jquery-3.1.1.js">
+      <Link>Scripts\jquery-3.1.1.js</Link>
+    </Content>
+    <Content Include="..\packages\jQuery.3.1.1\Content\Scripts\jquery-3.1.1.min.map">
+      <Link>Scripts\jquery-3.1.1.min.map</Link>
+    </Content>
+    <Content Include="..\packages\jQuery.3.1.1\Content\Scripts\jquery-3.1.1.slim.min.map">
+      <Link>Scripts\jquery-3.1.1.slim.min.map</Link>
+    </Content>
     <Content Include="Scripts\jquery.isloading.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="tsconfig.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -123,8 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\isloading-style.css" />
-    <Content Include="Scripts\r.js" />
-    <Content Include="Scripts\require.js" />
     <TypeScriptCompile Include="ViewModels\Config.ts" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
