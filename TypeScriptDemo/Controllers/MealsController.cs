@@ -1,7 +1,7 @@
-﻿using knockoutJsDemo.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using knockoutJsDemo.Models;
 
 namespace knockoutJsDemo.Controllers
 {
@@ -28,6 +28,5 @@ namespace knockoutJsDemo.Controllers
             }
             return Ok(product);
         }
-
     }
 }
